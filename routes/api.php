@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HealthController;
 
-Route::get('/health', function () {
-    return response()->json([
-        'message' => 'OK'
-    ], 200);
-});
+Route::get('/health', HealthController::class);
