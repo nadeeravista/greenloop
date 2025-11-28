@@ -39,6 +39,42 @@
                     }
                 }
             }
+        },
+        "/auth": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Authenticated user endpoint",
+                "description": "Returns an authenticated user",
+                "operationId": "ae1516e33d55d71b5c0eb4121bfceb0b",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Authenticated"
+                                        },
+                                        "user": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 1,
+                                                "name": "John Doe",
+                                                "email": "john.doe@example.com"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -55,6 +91,10 @@
         {
             "name": "Health",
             "description": "Health"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
         }
     ]
 }
