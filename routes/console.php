@@ -1,8 +1,13 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\UserController;
+use App\Services\UserService;
 
-Artisan::command('command:purpose', function () {
-    $this->comment('Command purpose');
-})->purpose('Command purpose');
+Artisan::command('token:generate', function () {
+    $userService = new UserService();
+
+    $token = $userService->generateToken();
+
+    $this->info('Token generated successfully: ' . $token);
+});
