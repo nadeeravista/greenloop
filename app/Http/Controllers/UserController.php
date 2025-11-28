@@ -10,6 +10,7 @@ class UserController extends Controller
      *     summary="Authenticated user endpoint",
      *     description="Returns an authenticated user",
      *     tags={"Auth"},
+     *     security={{"sanctum": {}}},
      *     @OA\Response(
      *         response=200,
      *         description="Successful response",

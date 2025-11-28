@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\UserController;
 use App\Services\UserService;
 
 Artisan::command('token:generate', function () {
