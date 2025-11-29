@@ -7,3 +7,7 @@
 ### Adding a console command that runs in terminal to just generate a token for any user - Useful when testing
 
 `php artisan token:generate`
+
+### Running tests
+
+`php artisan test`
