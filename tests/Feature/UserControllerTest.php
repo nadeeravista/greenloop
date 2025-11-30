@@ -30,7 +30,7 @@ class UserControllerTest extends TestCase
         ]);
     }
 
-    public function test_generate_qr_code_endpoint_returns_successful_response()
+    public function test_generate_user_qr_code_endpoint_returns_successful_response()
     {
 
         $request = Mockery::mock(Request::class);
@@ -43,7 +43,7 @@ class UserControllerTest extends TestCase
         // Bind the mock to Laravel's container
         $this->app->instance(Request::class, $request);
 
-        $response = $this->withoutMiddleware()->get('/api/auth/generate-qr-code');
+        $response = $this->withoutMiddleware()->get('/api/auth/generate-user-qr-code');
 
         $response->assertStatus(200);
         $response->assertJson([

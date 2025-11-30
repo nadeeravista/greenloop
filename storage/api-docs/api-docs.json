@@ -81,12 +81,12 @@
                 ]
             }
         },
-        "/auth/generate-qr-code": {
+        "/auth/generate-user-qr-code": {
             "get": {
                 "tags": [
                     "QR Code"
                 ],
-                "operationId": "bdf68c738dd923b7a6fa241599c463f8",
+                "operationId": "0602020f950e101a503668b224eb5f7c",
                 "responses": {
                     "200": {
                         "description": "Successful response",

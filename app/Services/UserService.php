@@ -26,7 +26,7 @@ class UserService
      * @param User $user
      * @return string QR code data
      */
-    public function generateQRCode(string $email): string
+    public function generateUserQRCode(string $email): string
     {
         $data = $email;
 

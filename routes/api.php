@@ -11,5 +11,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('auth', UserController::class)->only(['index']);
 
     // Custom routes - add more custom routes here as needed
-    Route::get('/auth/generate-qr-code', [UserController::class, 'generateQRCode']);
+    Route::get('/auth/generate-user-qr-code', [UserController::class, 'generateUserQRCode']);
 });

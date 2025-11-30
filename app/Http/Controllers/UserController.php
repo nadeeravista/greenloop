@@ -47,7 +47,7 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/auth/generate-qr-code",
+     *     path="/auth/generate-user-qr-code",
      *     tags={"QR Code"},
      *     security={{"sanctum": {}}},
      *     @OA\Response(
@@ -59,9 +59,9 @@ class UserController extends Controller
      *     )
      * )
      */
-    public function generateQRCode(Request $request, UserService $userService)
+    public function generateUserQRCode(Request $request, UserService $userService)
     {
-        $qrCode = $userService->generateQRCode($request->user()->email);
+        $qrCode = $userService->generateUserQRCode($request->user()->email);
 
         return response()->json([
             'message' => 'QR Code generated',
