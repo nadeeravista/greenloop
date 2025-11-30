@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\UserService;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -18,28 +19,35 @@ class UserController extends Controller
      *         description="Successful response",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string", example="Authenticated"),
-     *             @OA\Property(property="user", type="object", example={
-     *                 "id": 1,
-     *                 "name": "John Doe",
-     *                 "email": "john.doe@example.com"
-     *             })
+     *             @OA\Property(
+     *                 property="user",
+     *                 type="object",
+     *                 example={
+     *                     "id": 1,
+     *                     "name": "John Doe",
+     *                     "email": "john.doe@example.com"
+     *                 }
+     *             )
      *         )
      *     )
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
         return response()->json([
-            'message' => 'Authenticated'
+            'message' => 'Authenticated',
+            'user' => [
+                'id' => $request->user()->id,
+                'name' => $request->user()->name,
+                'email' => $request->user()->email
+            ]
         ], 200);
     }
 
 
     /**
      * @OA\Get(
-     *     path="auth/generate-qr-code",
-     *     summary="Generate QR Code endpoint",
-     *     description="Generates a QR Code",
+     *     path="/auth/generate-qr-code",
      *     tags={"QR Code"},
      *     security={{"sanctum": {}}},
      *     @OA\Response(
@@ -51,13 +59,13 @@ class UserController extends Controller
      *     )
      * )
      */
-    public function generateQRCode(UserService $userService)
+    public function generateQRCode(Request $request, UserService $userService)
     {
-        // $qrCode = $userService->generateQRCode();
+        $qrCode = $userService->generateQRCode($request->user()->email);
 
         return response()->json([
             'message' => 'QR Code generated',
-            'qr_code' => 'https://www.google.com'
+            'content' => $qrCode
         ], 200);
     }
 }
