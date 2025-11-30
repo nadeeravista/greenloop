@@ -47,7 +47,7 @@
                 ],
                 "summary": "Authenticated user endpoint",
                 "description": "Returns an authenticated user",
-                "operationId": "ae1516e33d55d71b5c0eb4121bfceb0b",
+                "operationId": "b6ca6a182818ffeada8fc29e171cd1b3",
                 "responses": {
                     "200": {
                         "description": "Successful response",
@@ -66,6 +66,37 @@
                                                 "name": "John Doe",
                                                 "email": "john.doe@example.com"
                                             }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/auth/generate-qr-code": {
+            "get": {
+                "tags": [
+                    "QR Code"
+                ],
+                "operationId": "bdf68c738dd923b7a6fa241599c463f8",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "QR Code generated"
                                         }
                                     },
                                     "type": "object"
@@ -100,6 +131,10 @@
         {
             "name": "Auth",
             "description": "Auth"
+        },
+        {
+            "name": "QR Code",
+            "description": "QR Code"
         }
     ]
 }
