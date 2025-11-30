@@ -10,11 +10,11 @@ use Laravel\Sanctum\PersonalAccessToken;
 
 class UserServiceTest extends TestCase
 {
-    public function test_generate_qr_code()
+    public function test_generate_user_qr_code()
     {
         $userService = new UserService();
 
-        $qrCode = $userService->generateQRCode('test@example.com');
+        $qrCode = $userService->generateUserQRCode('test@example.com');
 
         $this->assertNotNull($qrCode);
         $this->assertStringStartsWith('<?xml version="1.0"', $qrCode);
